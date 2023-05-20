@@ -51,14 +51,14 @@ public class BooleanSearchEngine implements SearchEngine {
 
     @Override
     public List<PageEntry> search(String words) throws IOException {
-        List<String> wordList = new LinkedList<>(Arrays.asList(words.trim().toLowerCase().split("\\s++")));
+        List<String> wordList = new ArrayList<>(Arrays.asList(words.trim().toLowerCase().split("\\s++")));
         List<String> stopWords = readStopWords();
         List<PageEntry> pageEntries = new ArrayList<>();
-        try {
-            wordList.removeAll(stopWords);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        //try {
+           // wordList.removeAll(stopWords);
+        //} catch (Exception e) {
+           // throw new RuntimeException(e);
+      //  }
         if (wordList.size() == 1) {
             return map.getOrDefault(wordList.get(0), Collections.emptyList());
         } else {
